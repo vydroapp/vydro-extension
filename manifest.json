@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Vydro — YouTube Studio Sync",
+  "version": "1.2.0",
+  "description": "Syncs your real 'When your viewers are on YouTube' graph from YouTube Studio into your Vydro optimal-posting-time scheduler.",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": [
+    "https://studio.youtube.com/*",
+    "https://www.vydro.app/*",
+    "https://vydro.app/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Vydro Studio Sync"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; background: #06080f; color: #e5e7eb; width: 320px; margin: 0; padding: 16px; }
+  h1 { font-size: 14px; margin: 0 0 8px; font-weight: 700; letter-spacing: -0.01em; }
+  .sub { font-size: 11px; color: #9ca3af; margin-bottom: 14px; line-height: 1.4; }
+  input { width: 100%; padding: 8px 10px; font-size: 12px; border-radius: 8px; border: 1px solid #2a2f3c; background: #11141c; color: white; outline: none; box-sizing: border-box; margin-bottom: 8px; }
+  input:focus { border-color: #6366f1; }
+  button { width: 100%; padding: 9px; font-size: 12px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer; background: linear-gradient(135deg, #6366f1, #06b6d4); color: white; }
+  button.secondary { background: #1f2330; color: #9ca3af; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .status { padding: 10px; border-radius: 8px; font-size: 11px; line-height: 1.4; margin-top: 12px; border: 1px solid #2a2f3c; background: #11141c; }
+  .status.synced { border-color: #34d399; color: #34d399; background: rgba(52, 211, 153, 0.06); }
+  .status.error { border-color: #f87171; color: #fca5a5; background: rgba(248, 113, 113, 0.06); }
+  .status.syncing { border-color: #6366f1; color: #a5b4fc; background: rgba(99, 102, 241, 0.08); }
+  a { color: #a5b4fc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .row { display: flex; gap: 6px; }
+  .row > * { flex: 1; }
+</style>
+</head>
+<body>
+<h1>Vydro Studio Sync</h1>
+<div class="sub">Sends your real "When your viewers are on YouTube" graph to Vydro every time you visit YouTube Studio's Audience tab.</div>
+
+<div id="signed-out">
+  <input id="token" type="password" placeholder="Vydro session token" autocomplete="off" />
+  <button id="btn-save">Save token</button>
+  <div class="sub" style="margin-top: 10px;">
+    Get your token: open <a href="https://www.vydro.app/dashboard?settings=ext" target="_blank">vydro.app/dashboard</a>, scroll to <em>YouTube Studio Sync</em>, copy the token shown there.
+  </div>
+</div>
+
+<div id="signed-in" style="display: none;">
+  <div class="row">
+    <button id="btn-sync">Sync now</button>
+    <button id="btn-signout" class="secondary">Sign out</button>
+  </div>
+  <div id="status" class="status">Not synced yet — open YouTube Studio's Audience tab.</div>
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
